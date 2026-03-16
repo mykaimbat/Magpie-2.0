@@ -9,8 +9,8 @@ public class Magpie3
     */
    private String transformIWantStatement(String statement)
    {
-int psn = findPhrase(statement, "I want", 0);
-String restOfStatement = statement.substring(psn + 7);
+int want = findPhrase(statement, "I want", 0);
+String restOfStatement = statement.substring(want + 7);
 
 if (restOfStatement.substring(restOfStatement.length() - 1).equals("."))
 {
