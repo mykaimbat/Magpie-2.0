@@ -27,11 +27,11 @@ public class Magpie2
    }   
    else if (whichResponse == 4)
    {
-      response = "That's nice. Where did you hear that?";
+      response = "Where did you hear that?";
    } 
    else if (whichResponse == 5)
    {
-      response = "Please continue.";
+      response = "Please, go on.";
    }
    return response;
 }
@@ -52,7 +52,23 @@ public class Magpie2
  public String getResponse(String statement)
  {
     String response = "";        
-    response = getRandomResponse();       
+
+    if (statement.indexOf("math")>= 0 || statement.indexOf("science")>= 0)
+    {
+        response = "Is that your favorite class?";
+    }
+
+    else if (statement.indexOf("Okkodo High School") >= 0) {
+        response = "Okkodo High School is the best school!"; 
+    }
+    else if (statement.indexOf("weather") >= 0)
+    {
+        response = "I love talking about the weather!";
+
+    }
+    else{
+        response = getRandomResponse();
+    }
+
     return response;
- }
-}
+ }}
