@@ -7,7 +7,7 @@ public class Magpie2
     private String getRandomResponse()        
     {
         final int NUMBER_OF_RESPONSES = 4;
-        int whichResponse = 0;          // revise this assignment statement      
+        int whichResponse = (int)(Math.random()*NUMBER_OF_RESPONSES);          // revise this assignment statement      
         String response = "";
 
         if (whichResponse == 0)
