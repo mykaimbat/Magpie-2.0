@@ -31,12 +31,14 @@ return "I would like " + restOfStatement + ", too!"; // Modify this statement to
     */
    private String transformWouldYouLikeStatement(String statement)
    {
-      // Your code for Activity 3 Part c goes here
-        
-      return ""; // Modify this statement to return the correct String
+
+      int wouldu = findPhrase(statement, "Would you like to", 0); 
+      int witme = findPhrase(statement, "with me", wouldu);
+
+      String action = statement.substring(wouldu + 17, witme);
+      return "When would you like me to" + action +  "with you?"; // Modify this statement to return the correct String
    }
 	
-
    /**
     * Gives a response to a user statement
     * @param statement the user statement
