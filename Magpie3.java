@@ -9,8 +9,15 @@ public class Magpie3
     */
    private String transformIWantStatement(String statement)
    {
-      // Your code for Activity 3 Part b goes here
-      return ""; // Modify this statement to return the correct String
+int psn = findPhrase(statement, "I want", 0);
+String restOfStatement = statement.substring(psn + 7);
+
+if (restOfStatement.substring(restOfStatement.length() - 1).equals("."))
+{
+   restOfStatement = restOfStatement.substring(0, restOfStatement.length() -1);
+}
+
+return "I would like " + restOfStatement + ", too!"; // Modify this statement to return the correct String
    }
 
 
