@@ -48,8 +48,6 @@ String[] responses = {
      return "I would like" + restOfStatement + ", too!";
    }
 
-
-
    /**
     * Take a statement with "Would you like to  with me?" 
     * and transform it into 
@@ -82,6 +80,8 @@ String[] responses = {
    public String getResponse(String statement)
    {
       String response = "";
+      String[] names = {"Myka,Jilliane,Evan,Ivan,Shynez,Tani,Liam,Christine,Mason,Anastasia "};
+      String[] studentNames = names.split(",");
       if (statement.indexOf("math") >= 0 || 
          statement.indexOf("science") >= 0)
       {
@@ -95,7 +95,11 @@ String[] responses = {
       {
          response = "That sounds yummy, tell me more.";
       }
-
+//TEACHER
+else if (statement.indexOf("Mrs. Cortez")>=0){
+    int randomIndex = (int)(Math.random() * names.length);
+        response = "Oh, you’re in Mrs. Cortez's class! Do you know " + names[randomIndex] + "?";
+}
       // Responses which require transformations
       else if (findPhrase(statement, "I want", 0) >= 0) 
       {
