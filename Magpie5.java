@@ -20,7 +20,7 @@ String[] responses = {
    {
      String lastChar = statement.substring(statement.length() - 1);
      if (lastChar.equals("."))
-     {gBy
+     {
         statement = statement.substring(0, statement.length() - 1);
      }
      int position = findPhrase (statement, "I dislike", 0);
