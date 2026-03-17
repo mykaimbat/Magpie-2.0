@@ -1,5 +1,20 @@
 public class Magpie4
 {
+
+    private String transformIFeelStatement(String statement)
+{
+   String feels = statement.substring(statement.length() - 1);
+   if (feels.equals("."))
+   {
+      statement = statement.substring(0, statement.length() - 1);
+   }
+
+   int position = findPhrase(statement, "I feel", 0);
+   String restOfStatement = statement.substring(position + 6);
+
+   return "Why do you feel" + restOfStatement + "?";
+}
+
    /**
     * Take a statement with "I dislike ." and transform 
     * it into "You said, 'I dislike '? What do you dislike 
@@ -10,8 +25,14 @@ public class Magpie4
     */
    private String transformIDislikeStatement(String statement)
    {
-      // Your code for Activity 4 Part a goes here
-      return ""; // Modify this statement to return the correct String
+ String dislike = statement.substring(statement.length() -1);
+ 
+ if (dislike.equals(".")){
+
+statement = statement.substring(0, statement.length() -1);
+ }
+
+   return "You said, \'" + statement + "\'? What do you dislike about it?";
     }
         
     
@@ -89,6 +110,14 @@ public class Magpie4
       {
          response = transformWouldYouLikeStatement(statement);
       }
+       else if (findPhrase(statement, "I dislike", 0)>= 0|| findPhrase(statement, "You dislike", 0) >=0){
+
+        response = transformIDislikeStatement(statement);
+      }
+else if (findPhrase(statement, "I feel", 0) >= 0)
+{
+   response = transformIFeelStatement(statement);
+}
       else
       {
          response = getRandomResponse();
@@ -201,7 +230,7 @@ public class Magpie4
       {
          response = "Please, go on.";
       }
-
+     
      return response;
    }
 }
